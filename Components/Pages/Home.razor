@@ -1,0 +1,56 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+
+<PageTitle>Home</PageTitle>
+
+
+<MudText Typo="Typo.h5" GutterBottom="true">Monitor all the system parameters from here</MudText>
+<br />
+<MudGrid>
+    
+    <MudItem xs="4">
+       <MudCard>
+           <MudCardHeader>Todays Energy Exported</MudCardHeader>
+            <MudCardContent><DayTotalEnergy/></MudCardContent>
+       </MudCard>
+        
+    </MudItem>
+    <MudItem xs="4">
+        <MudCard>
+            <MudCardHeader>Power Factor</MudCardHeader>
+            <MudCardContent><PowerFactor/></MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="4">
+        <MudCard>
+            <MudCardHeader>Alerts</MudCardHeader>
+            <MudCardContent><MudAlert Severity="Severity.Success" Variant="Variant.Filled">No Alarms</MudAlert></MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="6">
+        <MudCard>
+            <MudCardHeader>voltage</MudCardHeader>
+            <MudCardContent><MudText Typo="Typo.h3">220V</MudText></MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="6">
+        <MudCard>
+            <MudCardHeader>Current</MudCardHeader>
+            <MudCardContent><MudText Typo="Typo.h3">5A</MudText></MudCardContent>
+        </MudCard>
+    </MudItem>
+    
+    <MudItem xs="12">
+        <MudCard>
+            <MudCardHeader>Weeks Energy Exported</MudCardHeader>
+            <MudCardContent>
+                <EnergyExport />
+            </MudCardContent>
+
+        </MudCard>
+
+    </MudItem>
+</MudGrid>
+

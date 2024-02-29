@@ -1,0 +1,10 @@
+﻿<MudChart ChartType="ChartType.Donut" Width="300px" Height="300px" InputData="@data" InputLabels="@labels">
+	<CustomGraphics>
+		<text class="donut-inner-text" x="47%" y="35%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="2">Power factor</text>
+		<text class="donut-inner-text" x="47%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" font-family="Helvetica" font-size="5">@data[0]</text>
+	</CustomGraphics>
+</MudChart>
+@code {
+	public double[] data = { 0.9, 0.1 };
+	public string[] labels = { "P","Q" };
+}

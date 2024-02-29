@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-RemoteMonitoringPQ-1d414e79-f6f3-459d-839e-35b6669c6ddd</UserSecretsId>
+  </PropertyGroup>
+
+  
+  
+  <ItemGroup>
+	<PackageReference Include="MudBlazor" Version="6.*" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.0-rc.2.23480.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0-rc.2.23480.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0-rc.2.23480.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0-rc.2.23480.1" />
+    <PackageReference Include="Syncfusion.Blazor" Version="24.2.7" />
+    <PackageReference Include="Syncfusion.Licensing" Version="24.2.7" />
+  </ItemGroup>
+
+</Project>

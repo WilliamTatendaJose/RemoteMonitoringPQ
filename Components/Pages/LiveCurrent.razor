@@ -1,0 +1,47 @@
+﻿@using Syncfusion.Blazor.Charts
+
+<SfChart Width="500" Height="500">
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Double"></ChartPrimaryXAxis>
+    <ChartPrimaryYAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Double"></ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@currentData" XName="Time" YName="Current" Type="ChartSeriesType.Line">
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code {
+    public List<CurrentData> currentData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Parameters
+       
+        double amplitude = 5; // Amplitude
+        double samplingRate = 1; // Sampling rate in samples per second
+        double duration = 60; // Duration in seconds
+
+        // Initialize data list
+        currentData = new List<CurrentData>();
+
+        // Generate sinusoidal current data with noise
+        for (double t = 0; t < duration; t += 1 / samplingRate)
+        {
+           
+            // Add noise (modify as needed)
+            double noise = 0.1 * amplitude * new Random().NextDouble(); // adjust noise magnitude
+
+            // Add current and noise to data
+            currentData.Add(new CurrentData
+                {
+                    Time = t,
+                    Current = amplitude - noise
+                });
+        }
+    }
+
+    public class CurrentData
+    {
+        public double Time { get; set; }
+        public double Current { get; set; }
+    }
+}

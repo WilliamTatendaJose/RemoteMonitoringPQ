@@ -1,0 +1,39 @@
+﻿
+@using Syncfusion.Blazor.Charts
+
+<SfChart Width="500" Height="500">
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Double"></ChartPrimaryXAxis>
+    <ChartPrimaryYAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Double"></ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@voltageData" XName="Time" YName="Voltage" Type="ChartSeriesType.Line">
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code {
+    public List<VoltageData> voltageData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        double frequency = 50; // Frequency in Hz
+        double amplitude = 220; // Amplitude
+        double samplingRate = 1000; // Sampling rate in samples per second
+        double duration = 60; // Duration in seconds
+
+        voltageData = new List<VoltageData>();
+        for (double t = 0; t < duration; t += 1 / samplingRate)
+        {
+            voltageData.Add(new VoltageData
+                {
+                    Time = t,
+                    Voltage = amplitude 
+                });
+        }
+    }
+
+    public class VoltageData
+    {
+        public double Time { get; set; }
+        public double Voltage { get; set; }
+    }
+}

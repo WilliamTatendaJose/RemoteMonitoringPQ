@@ -1,0 +1,50 @@
+﻿@page "/remote_monitoring"
+@rendermode InteractiveServer
+@using Microsoft.AspNetCore.Authorization
+
+@attribute [Authorize]
+
+<MyMudProviders />
+
+<MudText Typo="Typo.h5" GutterBottom="true">Monitor all Live System Parameters</MudText>
+<br />
+<MudGrid>
+    <MudItem xs="4">
+        <MudCard>
+            <MudCardHeader>Alerts</MudCardHeader>
+            <MudCardContent><MudAlert Severity="Severity.Success" Variant="Variant.Filled">No Alarms</MudAlert></MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="4">
+        <MudCard>
+            <MudCardHeader>Power Factor</MudCardHeader>
+            <MudCardContent><PowerFactor/></MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="4">
+        <MudCard>
+            <MudCardHeader>Status</MudCardHeader>
+            <MudCardContent><MudAlert Severity="Severity.Success" Variant="Variant.Filled">Active</MudAlert></MudCardContent>
+        </MudCard>
+    </MudItem>
+
+    <MudItem xs="6">
+        <MudCard>
+            <MudCardHeader>Voltage</MudCardHeader>
+            <MudCardContent><LiveVoltage/></MudCardContent>
+        </MudCard>
+
+    </MudItem>
+    <MudItem xs="6">
+        <MudCard>
+            <MudCardHeader>Current</MudCardHeader>
+            <MudCardContent><LiveCurrent /></MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12">
+        <MudCard>
+            <MudCardHeader>Energy</MudCardHeader>
+            <MudCardContent><LiveEnergyExport/></MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>

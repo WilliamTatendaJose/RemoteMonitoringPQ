@@ -1,0 +1,22 @@
+﻿@using RemoteMonitoringPQ.Components
+@using RemoteMonitoringPQ.Components.Account.Shared
+<MudNavMenu>
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Overview</MudNavLink>
+    <MudNavLink Href="remote_Monitoring" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Functions">Remote Monitoring</MudNavLink>
+    <MudNavLink Href="logs" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Logs</MudNavLink>
+
+	<AuthorizeView>
+		<Authorized>
+			<MudNavLink Href="Account/Manage" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Verified">@context.User.Identity?.Name</MudNavLink>
+               <LogoutForm id="logout-form" />
+                <NavLink class="nav-link" href="#" onclick="document.getElementById('logout-form').submit(); return false;">
+                    <span class="bi bi-arrow-bar-left" aria-hidden="true"></span> Logout
+                </NavLink>
+        
+		</Authorized>
+		<NotAuthorized>
+			<MudNavLink Href="Account/Login" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.VerifiedUser">Login</MudNavLink>
+		</NotAuthorized>
+	</AuthorizeView>
+
+</MudNavMenu>

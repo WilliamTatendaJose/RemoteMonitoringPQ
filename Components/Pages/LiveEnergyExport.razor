@@ -1,0 +1,51 @@
+﻿@using Syncfusion.Blazor.Charts
+<h3>Energy Exported</h3>
+
+
+
+<SfChart Width="500" Height="500">
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Double"></ChartPrimaryXAxis>
+    <ChartPrimaryYAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Double"></ChartPrimaryYAxis>
+    <ChartPrimaryYAxis LabelFormat="{value}W"></ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@energyData" XName="Time" YName="energy" Type="ChartSeriesType.Line">
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code {
+    public List<EnergyData> energyData { get; set; }
+
+    protected override void OnInitialized()
+    {
+        // Parameters
+
+        double amplitude = 100; // Amplitude
+        double samplingRate = 1; // Sampling rate in samples per second
+        double duration = 24; // Duration in seconds
+
+        // Initialize data list
+        energyData = new List<EnergyData>();
+
+        // Generate sinusoidal energy data with noise
+        for (double t = 0; t < duration; t += 1 / samplingRate)
+        {
+
+            // Add noise (modify as needed)
+            double noise = 0.1 * amplitude * new Random().NextDouble(); // adjust noise magnitude
+
+            // Add energy and noise to data
+            energyData.Add(new EnergyData
+                {
+                    Time = t,
+                    energy = amplitude - noise
+                });
+        }
+    }
+
+    public class EnergyData
+    {
+        public double Time { get; set; }
+        public double energy { get; set; }
+    }
+}

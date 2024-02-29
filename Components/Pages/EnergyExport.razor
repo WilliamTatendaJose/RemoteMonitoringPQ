@@ -1,0 +1,12 @@
+﻿<MudChart ChartType="ChartType.Bar" ChartSeries="@Series" XAxisLabels="@XAxisLabels" Width="100%" Height="350px">
+</MudChart>
+
+
+    @code {
+            public List<ChartSeries> Series = new List<ChartSeries>()
+        {
+            new ChartSeries() { Name = "Energy/W", Data = new double[] {1010, 930, 1150, 1100, 1010, 1200, 1078 } },
+
+        };
+            public string[] XAxisLabels = { "Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat" };
+     }
